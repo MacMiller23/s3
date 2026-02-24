@@ -1,0 +1,1 @@
+select * from {{source('staging', 'hosts')}} --references our source/sources.yml - hosts, which is airbnb.hosts
