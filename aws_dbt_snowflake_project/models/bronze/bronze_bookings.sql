@@ -1,1 +1,11 @@
-select * from {{source('staging', 'bookings')}} --references our source/sources.yml - bookings, which is airbnb.bookings
+{{ config(materialized='incremental') }}
+
+select *
+from {{ source('staging', 'bookings') }}
+
+{% if is_incremental() %}
+    where CREATED_AT > (
+        select coalesce(max(CREATED_AT), '1900-01-01')
+        from {{ this }}
+    )
+{% endif %}
