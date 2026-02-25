@@ -13,7 +13,7 @@
         "join_condition" : "silver_bookings.listing_id = silver_listings.listing_id"
     },
     {"table" : "airbnb.silver.silver_hosts",
-        "columns": "silver_hosts.HOST_NAME,silver_hosts.host_since,silver_hosts.is_superhost,silver_hosts.response_rate_quality,silver_hosts.created_at as host_created_at",
+        "columns": "silver_hosts.HOST_NAME,silver_hosts.host_since,silver_hosts.is_superhost,silver_hosts.response_rate,silver_hosts.response_rate_quality,silver_hosts.created_at as host_created_at",
         "alias" : "silver_hosts",
         "join_condition" : "silver_listings.host_id = silver_hosts.host_id"
     }
